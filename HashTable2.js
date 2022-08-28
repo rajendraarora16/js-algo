@@ -7,13 +7,11 @@ class HashTable {
 
 
     hashStringToInt = function (key) {
-
         let hashSum = 0;
         
         for (let i=0; i < key.length; i++) {
             hashSum += key.charCodeAt(i);
         }
-
         return hashSum % this.arrLength;
     }
 
@@ -46,11 +44,13 @@ m.set("raj", "arora");
 m.set("raj2", "arora1");
 
 console.log(m.arrLength);
-console.log(m.list)
 
 for(let i = 0; i < 5000000; i++) {
     m.set(`a${i}`, `b${i}`);
 }
+
+console.log(m.list);
+
 
 let timeStart = new Date().getTime();
 m.get('FoOO');
