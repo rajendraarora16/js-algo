@@ -50,58 +50,92 @@ class BST {
         }
     }
 
-    /**
-     * In order traversal
-     */
-    inOrderTraversal () {
+    inOrder() {
+        if (this.root == null) {
+            return undefined;
+        }
+        let stack = [];
         let result = [];
-        let current = this.root;
-        while (current) {
-            if (current.left) {
-                current.value = current.left;
-            }
-            result.push(current.value);
-            if (current.right) {
-                current.value = current.right;
+        let node = this.root;
+
+
+        while (stack.length > 0) {
+            if (node !== null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.pop();
+                result.push(node);
+                node = node.right;
             }
         }
         return result;
     }
 
-    /**
-     * Post order traversal
-     */
-     postOrderTraversal () {
-        let result = [];
+    searchValue (searchValue) {
+        let current = this.root;
 
-        let traverse = function (root) {
-            if (root.left) {
-                traverse(root.left);
+        while (!!current) {
+            if (current.value == searchValue) {
+                return true;
             }
-            if (root.right) {
-                traverse(root.right);
+
+            if (current.value > searchValue) {
+                current = current.left;
+            } else {
+                current = current.right;
             }
-            result.push(root.value);
         }
-        traverse(this.root);
-        return result;
+        return false;
     }
 }
 
-let bst = new BST();
-bst.add(10);
-bst.add(9);
-bst.add(8);
-bst.add(7);
-bst.add(11);
-bst.add(12);
-bst.add(13);
-bst.add(10);
-bst.add(2);
-bst.add(104);
+/**
+     * In order traversal using iterative
+     */
+ let inOrderTraversal = function (node) {
 
+    if (node == null) {
+        return undefined;
+    }
+
+    let stack = [node];
+    let result = [];
+
+    while (stack.length > 0) {
+        node = stack.shift();
+        if (node.left) {
+            stack.push(node.left);
+        }
+        if (node.right) {
+            stack.push(node.right);
+        }
+        result.push(node.value);        
+    }
+    return result;
+}
+
+let bst = new BST();
+bst.add(12);
+bst.add(6);
+bst.add(4);
 
 console.log(bst);
-console.log(bst.inOrderTraversal());
+console.log(bst.inOrder());
+
+console.log(bst.searchValue(12));
+
+// let node = new Node(10);
+// node.left = new Node(1);
+// node.left.left = new Node(9);
+// node.left.left.left = new Node(8);
+// node.right = new Node(11);
+// node.right.right = new Node(12)
+
+// [ 10, 9, 8, 1, 11, 12 ]
+
+
+console.log(node);
+console.log(inOrderTraversal(node));
 
 

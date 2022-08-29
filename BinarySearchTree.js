@@ -36,15 +36,60 @@ class BST {
 
         insertLeftRight(value, this.root)
     }
+
+    /**
+     * Inorder traveral reursive function
+     */
+    inOrder() {
+        let result = [];
+        if (this.root == null) {
+            return undefined;
+        }
+        let inOrderTraversal = function (node) {
+            result.push(node.value);
+            if (node.left) {
+                inOrderTraversal(node.left);
+            }
+            if (node.right) {
+                inOrderTraversal(node.right);
+            }
+        }
+        inOrderTraversal(this.root);
+        return result;
+    }
+
+    /**
+     * Post order traversal recursive function
+     */
+    postOrder() {
+        let result = [];
+        if (this.root == null) {
+            return undefined;
+        }
+
+        let postOrderTraversal = function (node) {
+            if (node.left) {
+                postOrderTraversal(node.left);
+            }
+            if (node.right) {
+                postOrderTraversal(node.right);
+            }
+            result.push(node.value);
+        }
+        postOrderTraversal(this.root);
+        return result;
+    }
 }
 
 let bst = new BST();
 bst.add(10);
-bst.add(9);
-bst.add(8);
-bst.add(11);
 bst.add(12);
-bst.add(1);
+bst.add(14);
+bst.add(16);
+bst.add(18);
+bst.add(20);
 
 console.log(bst);
+console.log(bst.inOrder());
+console.log(bst.postOrder());
 
