@@ -18,7 +18,7 @@ let arr = [1, 2, 3, 5, 4, 8, 6, 2];
 let size = 3;
 
 console.log(maxSumArr(arr, size))
-
+// 18 output
 
 /**
  * Learnt from this youtube link:
