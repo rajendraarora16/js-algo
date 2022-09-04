@@ -30,8 +30,11 @@ function maxConsecutiveCharacter(str) {
     }
 
     let ObjValue = Object.keys(hashMap).find(k => hashMap[k] == max);
-    return ObjValue;
+    return ObjValue.replace(/\d+/g, '');
 }
 
 let str = "AAAAAAABBBAAACCCCADVBBDADADADDDDDDDDDSSSSSSSSSEEERR,ASDDDDQQQ";
 console.log(maxConsecutiveCharacter(str));
+
+let str2 = "RAJENDRAARORA1234345545534343434";
+console.log(str2.replace(/\d+/g, ''));
