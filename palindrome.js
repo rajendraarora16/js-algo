@@ -3,15 +3,10 @@
  * E.g: 'madam' and 'noon'
  */
 
-let checkPalindrome = function (str) {
-    let mid = Math.floor(str.length / 2);
-
-    for (let i = 0; i < mid; i++) {
-        if (str[i] !== str[str.length - i - 1]) {
-            return false;
-        }
+let reverse = function (str) {
+    for (let i = str.length - 1; i >= 0; i--) {
+        console.log(str[i]);
     }
-    return true;
 }
 
-console.log(checkPalindrome("madam"));
+console.log(reverse("abc"));
