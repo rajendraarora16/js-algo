@@ -18,3 +18,4 @@ function printVal(arr) {
     return result;
 }
 console.log(printVal(arr));
+
