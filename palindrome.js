@@ -3,10 +3,14 @@
  * E.g: 'madam' and 'noon'
  */
 
-let reverse = function (str) {
-    for (let i = str.length - 1; i >= 0; i--) {
-        console.log(str[i]);
+let palindrome = function (str) {
+    let length = str.length;
+    for (let i = 0; i < length/2; i++) {
+        if (str[i] !== str[length - 1 - i]) {
+            return "string is not palindrome";
+        }
     }
+    return "string is palindrome";
 }
 
-console.log(reverse("abc"));
+console.log(palindrome("aca"));
