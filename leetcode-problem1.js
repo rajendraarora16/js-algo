@@ -33,3 +33,45 @@ let twoSum = function(nums, target) {
 
 let arr = [2,5,5,11];
 console.log(twoSum(arr, 10))
+
+/**
+ * Solution with improvement above
+ */
+ let sumOfTwoArr = function (num, target) {
+    for (let i = 0; i < num.length; i++) {
+        for (let j = i + 1; j < num.length; j++) {
+            if (num[i] + num[j] == target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}
+
+let arr2 = [3, 5, 3, 1, 4, 5, 9];
+let target2 = 9; 
+
+console.log(sumOfTwoArr(arr2, target2))
+
+
+
+/**
+ * 
+ * Alternative solution
+ *
+ */
+ var twoSumSolution2 = function(nums, target) {
+    let hashMap = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        if(typeof hashMap[nums[i]] !== 'undefined') {
+            return [hashMap[nums[i]], i];
+        } else {
+            hashMap[target - nums[i]] = i;
+        }
+    }
+    return [];
+};
+
+let arr3 = [2,5,5,11];
+console.log(twoSum(arr3, 10))
