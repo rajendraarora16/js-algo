@@ -25,3 +25,24 @@ let sum = arrayOfNumbers.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
 });
 console.log(sum);
+
+
+/**
+ * Filter
+ * 
+ * The filter() method executes a callback function and iterates over every items inside a target array.
+ */
+let people = [
+    {name: "aaron",age: 65},
+    {name: "beth",age: 2},
+    {name: "cara",age: 13},
+    {name: "daniel",age: 3},
+    {name: "ella",age: 25},
+    {name: "fin",age: 1},
+    {name: "george",age: 43},
+]
+
+let toddlers = people.filter(person => person.age <= 3)
+
+console.log(toddlers);
+
