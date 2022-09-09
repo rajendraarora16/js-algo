@@ -1,3 +1,13 @@
+/**
+ * Pre order:
+ * Root → Left tree → Right tree
+ * In order:
+ * Left tree → Root → Right tree
+ * Post order:
+ * Left tree → Right tree → Root
+ */
+
+
 class Node {
     constructor(value) {
         this.value = value; 
@@ -79,6 +89,28 @@ class BST {
         postOrderTraversal(this.root);
         return result;
     }
+
+    /**
+     * search order value
+     */
+    search (searchVal) {
+        let node = this.root;
+        let searchFunc = function (node, searchVal) {
+            if (node == null) {
+                return undefined;
+            }
+            else if(searchVal < node.value) {
+                return searchFunc(node.left, searchVal);
+            }
+            else if(searchVal > node.value) {
+                return searchFunc(node.right, searchVal);
+            }
+            else {
+                return node.value;
+            }
+        }
+        return searchFunc(node, searchVal)
+    }
 }
 
 let bst = new BST();
@@ -92,4 +124,5 @@ bst.add(20);
 console.log(bst);
 console.log(bst.inOrder());
 console.log(bst.postOrder());
+console.log(bst.search());
 
