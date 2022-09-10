@@ -1,3 +1,11 @@
+/**
+ * Hash table is a data structure that allows to create a list of pair value
+ * by using certain key with value.
+ * 
+ * 'charCodeAt()' method returns an integer between 0 and 65535 representing the UTF-16 code
+ * 
+ */
+
 class HashTable {
 
     constructor(value) {
