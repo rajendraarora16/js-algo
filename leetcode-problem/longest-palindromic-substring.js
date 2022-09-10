@@ -27,8 +27,7 @@ let longestPalindrome1 = function(str) {
 
     for (let i = 0; i < str.length; i++) {
         for (let j = i; j < str.length; j++) {
-            
-            console.log(str.substring(i, j + 1))
+
             if (isPalindrome(str.substring(i, j + 1))){
                 
                 if ((j + 1 - i) > maxLen) {
@@ -38,7 +37,6 @@ let longestPalindrome1 = function(str) {
             }
         }
     }
-
     return maxStr;
 }
 let isPalindrome = function(str) {
@@ -59,39 +57,50 @@ console.log(longestPalindrome1('cbbd'));
  * Optimized solution
  * 
  * Time complexity - O(n ^ 2)
+ * 
+ * Suppose we will have two examples here with odd and even scenarios:
+ * 
+ * Example 1 is even scenario:
+ * 
+ *   a b b a
+ *   ^
+ *         ^
+ * 
+ * Example 2 is odd scenario:
+ * 
+ *   a  b  a
+ *      ^
+ * 
  */
 let longestPalindrome2 = function (str) {
-
     if (str == null || str.length == 0) {
         return '';
     }
 
-    let start = 0, end = 0;
+    let longest = '';
 
     for (let i = 0; i < str.length; i++) {
 
-        let len1 = expandFromCenter(str, i, i);
-        let len2 = expandFromCenter(str, i, i + 1);
-        let len = Math.max(len1, len2);
+        let oddPalindrome = expandFromCenter(str, i, i);
+        let evenPalindrome = expandFromCenter(str, i, i + 1);
+        
+        if (oddPalindrome.length > longest.length) {
+            longest = oddPalindrome;
+        }
 
-        if (len > (end - start)) {
-            start = (i - (len - 1)) / 2;
-            end = (i + len) / 2;
+        if (evenPalindrome.length > longest.length) {
+            longest = evenPalindrome;
         }
     }
-
-    return str.substring(start, end + 1);
+    return longest;
 }
-let expandFromCenter = function (str, start, end) {
-    let L = start;
-    let R = end;
+let expandFromCenter = function (str, left, right) {
 
-    while (L >= 0 && R < str.length && str[L] == str[R]) {
-        L--;
-        R++;
+    while (left >= 0 && right < str.length && str[left] == str[right]) {
+        left--;
+        right++;
     }
-
-    return R - L + 1;
+    return str.slice(left + 1, right);
 }
 
 console.log(longestPalindrome2('cbbd'));
