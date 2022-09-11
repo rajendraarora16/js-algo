@@ -97,7 +97,7 @@ class BST {
         let node = this.root;
         let searchFunc = function (node, searchVal) {
             if (node == null) {
-                return undefined;
+                return false;
             }
             else if(searchVal < node.value) {
                 return searchFunc(node.left, searchVal);
@@ -120,9 +120,10 @@ bst.add(14);
 bst.add(16);
 bst.add(18);
 bst.add(20);
+bst.add(1);
 
 console.log(bst);
 console.log(bst.inOrder());
 console.log(bst.postOrder());
-console.log(bst.search());
+console.log(bst.search(1));
 
