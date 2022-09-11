@@ -9,7 +9,7 @@
  */
 
 let defangIPaddr = function(address) {
-    return address
+    return address.replaceAll('.', '[.]');
 };
 
 let address = "1.1.1.1"
