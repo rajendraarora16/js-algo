@@ -1,36 +1,42 @@
 class BinaryHeap {
     constructor() {
-        this.values = [];
+        this.heap = [];
     }
 
-    add (element) {
-        
-        this.values.push(element);
+    insert (element) {
 
-        let index = this.values.length - 1;
-        let current = this.values[index];
+        this.heap.push(element);
 
-        while ( index > 0) {
+        let index = this.heap.length - 1;
+        let current = this.heap[index];
+
+        while (index > 0) {
             let parentIndex = Math.floor((index - 1) / 2);
-            let parent = this.values[parentIndex];
+            let parent = this.heap[parentIndex];
 
             if (parent <= current) {
-                this.values[parentIndex] = current;
-                this.values[index] = parent;
+                this.heap[parentIndex] = current;
+                this.heap[index] = parent;
                 index = parentIndex;
             } else {
                 break;
             }
         }
     }
+
+    getMin () {
+        return this.heap[1];
+    } 
 }
 
 let tree = new BinaryHeap();
-tree.add(13);
-tree.add(1);
-tree.add(3);
-tree.add(30);
-tree.add(17);
-tree.add(10);
+tree.insert(13);
+tree.insert(1);
+tree.insert(3);
+tree.insert(30);
+tree.insert(17);
+tree.insert(10);
 
 console.log(tree);
+
+console.log(tree.getMin());

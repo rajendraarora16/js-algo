@@ -4,23 +4,23 @@
 
 class BinaryHeap {
     constructor() {
-        this.values = [];
+        this.heap = [];
     }
 
     add (elemenet) {
         
-        this.values.push(elemenet);
+        this.heap.push(elemenet);
 
-        let index = this.values.length - 1;
-        let current = this.values[index];
+        let index = this.heap.length - 1;
+        let current = this.heap[index];
 
         while (index > 0) {
             let parentIndex = Math.floor((index - 1) / 2);
-            let parent = this.values[parentIndex];
+            let parent = this.heap[parentIndex];
 
             if (parent <= current) {
-                this.values[parentIndex] = current;
-                this.values[index] = parent;
+                this.heap[parentIndex] = current;
+                this.heap[index] = parent;
                 index = parentIndex;
             } 
             else {
