@@ -111,6 +111,83 @@ class BST {
         }
         return searchFunc(node, searchVal)
     }
+
+    /**
+     * Get minimum value from the tree
+     */
+    getMin(node = this.root) {
+        while (node.left) {
+            node = node.left;
+        }
+        return node.value;
+    }
+
+    /**
+     * Get maximum value from the tree
+     */
+    getMax(node = this.root) {
+        while (node.right) {
+            node = node.right;
+        }
+        return node.value;
+    }
+
+    /**
+     * get Size of the tree
+     */
+    getSize() {
+        return this.size;
+    }
+
+    /**
+     * Remove element from the BST
+     */
+    remove (value, node = this.root) {
+
+        let removeRecursive = function(value, node) {
+            if (!node) {
+                return null;
+            }
+            /**
+             * If value is then root value then go to left subtree
+             */
+            if (value < node.value) {
+                node.left = removeRecursive(value, node.left);
+            }
+            
+            /**
+             * If value is greater than root value then go to right subtree
+             */
+            else if (value > node.value) {
+                node.right = removeRecursive(value, node.right);
+            }
+    
+            else {
+                /**
+                 * If no child node exists then remove the node.
+                 */
+                if (!node.left && !node.right) {
+                    node = null;
+                    return node;
+                }
+
+                if (!node.left) {
+                    return node.left;
+                }
+    
+                else if (!node.right) {
+                    return node.right;
+                }
+    
+                else {
+                    node.value = this.getMin(node.right);
+                    node.right = removeRecursive(node.value, node.right);
+                }
+            }
+            return node;
+        }
+        return removeRecursive(value, node);
+    }
 }
 
 let bst = new BST();
@@ -119,11 +196,15 @@ bst.add(12);
 bst.add(14);
 bst.add(16);
 bst.add(18);
+bst.add(60);
 bst.add(20);
 bst.add(1);
+
 
 console.log(bst);
 console.log(bst.inOrder());
 console.log(bst.postOrder());
 console.log(bst.search(1));
-
+console.log(bst.getMin());
+console.log(bst.getMax());
+console.log(bst.remove(10));
