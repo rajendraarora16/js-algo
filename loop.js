@@ -18,11 +18,12 @@ console.log(newArray);
  * 
  * The .reduce() method iterates through an array and returns a single value.
  * 
+ * array.reduce(function(total, currentValue, currentIndex, arr), initialValue);
  */
 let arrayOfNumbers = [1, 2, 3, 4];
 
-let sum = arrayOfNumbers.reduce((accumulator, currentValue) => {  
-    return accumulator + currentValue;
+let sum = arrayOfNumbers.reduce((previousValue, currentValue) => {  
+    return previousValue + currentValue;
 });
 console.log(sum);
 

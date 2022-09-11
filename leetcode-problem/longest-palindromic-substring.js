@@ -57,6 +57,7 @@ console.log(longestPalindrome1('cbbd'));
  * Optimized solution
  * 
  * Time complexity - O(n ^ 2)
+ * Space complexity - O (1)
  * 
  * Suppose we will have two examples here with odd and even scenarios:
  * 
