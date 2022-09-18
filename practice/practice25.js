@@ -1,11 +1,13 @@
-let x = 321
-x.toString();
-let result = [];
-    
-for (let i = x.length - 1; i >= 0; i--) {
-    console.log(i);
-    console.log(x);
-    result.push(x[i]);
-}
-console.log(result);
+let reverseNum = function(num) {
+  let reverse = 0;
 
+  while (num > 0) {
+    let digit = num % 10;
+    reverse = (reverse * 10) + digit;
+    num = parseInt(num / 10);
+  }
+
+  return reverse;
+}
+
+console.log(reverseNum(12345))
