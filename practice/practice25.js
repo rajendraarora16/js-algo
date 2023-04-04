@@ -1,13 +1,26 @@
-let reverseNum = function(num) {
-  let reverse = 0;
+const express = require('express');
+const app = express();
+const port = 8080;
 
-  while (num > 0) {
-    let digit = num % 10;
-    reverse = (reverse * 10) + digit;
-    num = parseInt(num / 10);
+app.get('/', (req, res) => {
+  res.send('Hello world');
+});
+
+app.get('/api/:n', function(req, res) {
+  let n = parseInt(req.params.n);
+  let count = 0;
+  
+  if (n > 5000000000) {
+    n= 5000000000;
   }
 
-  return reverse;
-}
+  for (let i = 0; i < n; i++) {
+    count += i;
+  }
 
-console.log(reverseNum(12345))
+  res.send(`Final count is ${count}`);
+});
+
+app.listen(port, () => {
+  console.log('app listening in port ', port);
+});

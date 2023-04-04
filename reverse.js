@@ -14,6 +14,28 @@ console.log(reverseString("abc"));
 
 /**
  * Reverse number
+ * 
+ * Formula explanation
+ * 
+ * 123 - number
+ * 
+ * 1st Step:
+ * digit = 3
+ * reverse = (0 * 10) + 3 = 3
+ * num = 123/10 = 12
+ * 
+ * 2nd Step:
+ * digit = 2
+ * reverse = (3 * 10) + 2 = 32
+ * num = 1
+ * 
+ * 3rd Step:
+ * digit = 1
+ * reverse = (32 * 10) + 1 = 321
+ * num = 0
+ * 
+ * Hence reverse will be "321"
+ * 
  */
 let reverseNum = function (num) {
     let reverse = 0;

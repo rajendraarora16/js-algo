@@ -1,17 +1,26 @@
-let reverse = function(num) {
+let reverseNum = function(num) {
+
   let reverse = 0;
-  
   while (num > 0) {
     let digit = num % 10;
     reverse = (reverse * 10) + digit;
     num = parseInt(num / 10);
   }
-
   return reverse;
 }
 
-let reverseNum = 123;
-console.log(reverse(reverseNum));
+console.log(reverseNum(1234556))
+
+
+let count = 0;
+
+let arr = [0,1,2,3,4,5,6,7];
+
+arr.forEach(num => {
+  if (num) count += 5;
+});
+
+console.log(count);
 
 /**
  * 
