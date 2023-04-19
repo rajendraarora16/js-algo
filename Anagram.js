@@ -1,4 +1,20 @@
-var isAnagram = function(s, t) {
+/**
+ * 1st Approach
+ */
+const isAnagram = (str1, str2) => {
+  return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+};
+console.log(isAnagram('listen', 'silent'));
+console.log(isAnagram('they see', 'the eyes'));
+console.log(isAnagram('node', 'deno'));
+
+
+
+
+/**
+ * 2nd approach
+ */
+var isAnagram2 = function(s, t) {
     let arrS = [], arrT = [];
 
     if(s.length === t.length) {
@@ -21,4 +37,6 @@ var isAnagram = function(s, t) {
 
 console.log("car".charAt(1));
 
-console.log(isAnagram('car', 'rca'))
+console.log(isAnagram2('car', 'rca'))
+
+

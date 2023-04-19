@@ -15,6 +15,8 @@ arr.forEach(value => {
   return hashMap;
 });
 
+console.log(hashMap);
+
 let keyValRes = Object.values(hashMap);
 let result = keyValRes.sort(function(a, b) { return b - a })[1];
 console.log(result);
