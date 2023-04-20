@@ -25,7 +25,7 @@ console.log(palindrome("aca"));
  */
 let longestPalindrome = function(str) {
   let maxPalindrome = "";
-  let maxLength = "";
+  let maxLength = 0;
 
   for (let i = 0; i < str.length; i++) {
     let subs = str.substr(i, str.length);
