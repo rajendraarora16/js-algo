@@ -45,3 +45,17 @@ console.log(count);
  * 
  */
 
+
+let arrVal = ["a", "b", "c", "d"];
+
+let makeObj = function (input) {
+  let reduceWay = input.reduce(
+    (acc, it, index) =>
+      ({...acc, [index]: it})
+    , {} 
+  );
+
+  return reduceWay;
+}
+
+console.log(makeObj(arrVal));

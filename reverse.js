@@ -48,3 +48,31 @@ let reverseNum = function (num) {
     return reverse;
 }
 console.log(reverseNum(1234));
+
+
+
+
+/**
+ * Reverse String/number 
+ * Using swapping method with while loop
+ */
+let reverseNumProcess = function (arr) {
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    /* Swapping */
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    
+    left++;
+    right--;
+  }
+
+  return arr;
+}
+console.log(reverseNumProcess([8, 3, 2, 1, 6, 5, 2, 9, 12]));
+// [ 12, 9, 2, 5, 6, 1, 2, 3, 8 ]
+
+console.log(reverseNumProcess(["A", "B", "C", "D"]));
+// [ 'D', 'C', 'B', 'A' ]
