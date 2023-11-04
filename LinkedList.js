@@ -20,7 +20,7 @@ class LinkedList{
 
             let currentNode = this.head;
 
-            while(!!currentNode.next) {
+            while(currentNode.next) {
                 currentNode = currentNode.next;
             }
 
@@ -59,5 +59,9 @@ node.add(6);
 console.log(node);
 
 node.remove(5);
+
+console.log(node);
+
+// node.remove(2);
 
 console.log(node);
