@@ -11,7 +11,6 @@ class LinkedList{
         this.size = 0;
     }
 
-    /* Adding linkedlist value */
     add(data) {
         let newNode = new ListNode(data);
 
@@ -29,6 +28,27 @@ class LinkedList{
         }
         this.size++;
     }
+
+    remove(data) {
+        
+        let currentNode = this.head;
+        let previousNode;
+
+        if (currentNode.data === data) {
+            this.head = currentNode.next;
+        } else {
+
+            while (currentNode.data !== data) {
+
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+
+            previousNode.next = currentNode.next;
+        }
+
+        this.size--;
+    }
 }
 
 let node = new LinkedList();
@@ -38,20 +58,6 @@ node.add(6);
 
 console.log(node);
 
-/**
-  Output
- 
-  LinkedList { 
-    head: ListNode { 
-        data: 4, 
-        next: ListNode { 
-            data: 5, 
-            next: ListNode { 
-                data: 6, 
-                next: null 
-            } 
-        } 
-    }, 
-    size: 3 
-}
- */
+node.remove(5);
+
+console.log(node);
