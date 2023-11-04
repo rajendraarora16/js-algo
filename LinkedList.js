@@ -1,64 +1,57 @@
 class ListNode {
-    constructor (data) {
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
 }
 
-class LinkedList {
-    constructor (head = null) {
-        this.head = head;
-    }
-
-    size () {
-        let count = 0;
-        let node = this.head;
-        while (node) {
-            count++;
-            node = node.next;
-        }
-        return count;
-    }
-
-    clear() {
+class LinkedList{
+    constructor() {
         this.head = null;
+        this.size = 0;
     }
 
-    getFirstElement() {
-        let firstElement = this.head;
-        return firstElement.data;
-    }
+    /* Adding linkedlist value */
+    add(data) {
+        let newNode = new ListNode(data);
 
-    getLastElement() {
-        let lastNode = this.head;
-        if (lastNode) {
-            while (lastNode.next) {
-                lastNode = lastNode.next;
+        if (this.head === null) {
+            this.head = newNode;
+        } else {
+
+            let currentNode = this.head;
+
+            while(!!currentNode.next) {
+                currentNode = currentNode.next;
             }
+
+            currentNode.next = newNode;
         }
-        return lastNode;
+        this.size++;
     }
 }
 
-let list1 = new ListNode(3);
-let list2 = new ListNode(4);
-let list3 = new ListNode(5);
-let list4 = new ListNode(6);
-let list5 = new ListNode(10);
+let node = new LinkedList();
+node.add(4);
+node.add(5);
+node.add(6);
 
-list1.next = list2;
-list2.next = list3;
-list3.next = list4;
-list4.next = list5;
+console.log(node);
 
-let linkedList = new LinkedList(list1);
-
-console.log(linkedList);
-console.log(linkedList.size());
-console.log(linkedList.getLastElement());
-console.log(linkedList.getFirstElement());
-
-linkedList.clear()
-
-console.log(linkedList);
-console.log(linkedList.size());
+/**
+  Output
+ 
+  LinkedList { 
+    head: ListNode { 
+        data: 4, 
+        next: ListNode { 
+            data: 5, 
+            next: ListNode { 
+                data: 6, 
+                next: null 
+            } 
+        } 
+    }, 
+    size: 3 
+}
+ */
