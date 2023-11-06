@@ -58,8 +58,8 @@ console.log(sumOfTwoArr(arr2, target2))
 /**
  * 
  * Alternative solution
- *
  */
+
  var twoSumSolution2 = function(nums, target) {
     let hashMap = {};
 
@@ -75,3 +75,36 @@ console.log(sumOfTwoArr(arr2, target2))
 
 let arr3 = [2,5,5,11];
 console.log(twoSum(arr3, 10))
+
+
+/* Let's understand this */
+
+/**
+ * Let's say...
+ * 
+ * arr = [3, 2, 4]
+ * target = 5
+ * 
+ * hashMap = {}
+ * 
+ * First iteration...
+ * 
+ * hashMap [target - arr[i]] = i
+ * 
+ * E.g: hashMap[5 - 3] = o
+ * hashMap[2] = 0
+ * i.e: { 2: 0 }
+ * 
+ * if (typeof hashMap[arr[i]] !== 'undefined') {...}
+ * 
+ * Next iteration...
+ * i.e: arr[i] = 2 and i = 1;
+ * 
+ * if (typeof hashMap[2] !== 'undefined') {...}
+ * if (typeof 0 !== 'undefined') {...} // True condition..
+ * 
+ * so return [hashMap[arr[i]], i]
+ * return [hashMap[2], 1]
+ * return [0, 1] // Expected output..
+ * 
+ */
