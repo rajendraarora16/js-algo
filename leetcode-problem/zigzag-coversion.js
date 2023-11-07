@@ -30,20 +30,21 @@ const convert = (str, rows) => {
     let strFinalRes = '';
 
     for (let i = 0; i < strArr.length; i++) {
-        if (counter === rows) {
-            reverse = true;
-        }
-
-        if (counter === 1) {
-            reverse = false;
-        }
-
+        
         if (counter < rows && !reverse) {
             counter++;
         }
 
         if ( reverse && counter !== 1 ) {
             counter--;
+        }
+        
+        if (counter === rows) {
+            reverse = true;
+        }
+
+        if (counter === 1) {
+            reverse = false;
         }
 
         result.push({str: strArr[i], row: counter});
