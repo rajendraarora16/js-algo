@@ -37,3 +37,39 @@ let lengthOfLongestSubstring = function (s) {
 
 let s = "abcabcbb";
 console.log(lengthOfLongestSubstring(s));
+
+
+/**
+ * Optimal solution using "Sliding window technique"
+ * 
+ */
+
+const lengthOfLongestSubString = (str) => {
+    // Sliding window technique
+    
+    let left = 0;
+    let right = 0;
+    let maxLength = 0;
+    
+    if (str === "" || !str) {
+        return maxLength;
+    }
+
+    const char = new Set();
+
+    while (right < str.length) {
+
+        if (!char.has(str[right])) {
+            char.add(str[right]);
+            maxLength = Math.max(maxLength, char.size);
+            right++;
+        } else {
+            char.delete(str[left]);
+            left++;
+        }
+    }
+
+    return maxLength;
+}
+
+console.log(lengthOfLongestSubString("bbbbbbbb")); // 1
