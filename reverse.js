@@ -76,3 +76,31 @@ console.log(reverseNumProcess([8, 3, 2, 1, 6, 5, 2, 9, 12]));
 
 console.log(reverseNumProcess(["A", "B", "C", "D"]));
 // [ 'D', 'C', 'B', 'A' ]
+
+
+
+/**
+ Reverse string
+ 
+ "This is Javascript code"
+ 
+ "sihT si tpircsavaJ edoC"
+ */
+const str = "This is Javascript Code";
+const arrStr = str.split(" ");
+
+console.log(str.split(" "))
+// [ 'This', 'is', 'Javascript', 'Code' ]
+
+let result = [];
+
+for (let i = 0; i < arrStr.length; i++) {
+    result.push(arrStr[i].split('').reverse().join(""));
+}
+
+console.log(result.join(" "));
+
+/*
+   Expected output 
+   'sihT si tpircsavaJ edoC'
+*/
