@@ -17,6 +17,8 @@ const arr = [2, 7, 11, 4, -2];
  * 
  */
 
+// 1st approach
+
 const getSumOfArr = (arr) => {
     let result = [];
 
@@ -37,3 +39,22 @@ const getSumOfArr = (arr) => {
 }
 
 console.log(getSumOfArr(arr)) // [20, 15, 11, 18, 24]
+
+
+
+// 2nd approach
+
+const getSumOfArr2 = (arr) => {
+    let result = [];
+
+    const allSum = arr.reduce((acc, currentValue) => acc + currentValue, 0);
+
+    for (const value of arr) {
+        result.push(allSum - value);
+    }
+    
+    return result;
+}
+
+console.log(getSumOfArr2(arr)) // [20, 15, 11, 18, 24]
+
