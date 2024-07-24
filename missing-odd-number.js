@@ -1,29 +1,50 @@
-/*
-Let's take a look in this array 
 
-[5, 7, 9, 11, 15, 17, 21];
+// 1st Approach..
 
-Here in above 13 and 19 odd numbers are missing with the sequence, so the output should be [13, 19].
-*/
+const findMissingValue = (arr) => {
 
+    // Sort it..
+    arr.sort((a, b) => a - b);
+    
+    let oddArr = [];
+    const firstElement = arr[0];
+    const lastElement = arr[arr.length - 1];
 
-let missingOddNum = function (arr) {
-    let result = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        let current = arr[i];
-        let next = current + 2;
-        let lastElement = arr[arr.length - 1];
-
-        if (arr[i + 1] !== next && current < lastElement) {
-            result.push(next);   
+    for (let i = firstElement; i <= lastElement; i++) {
+        if (i % 2 === 1) {
+            oddArr.push(i);
         }
     }
-    return result;
+
+    const missingValue = oddArr.filter( item => !arr.includes(item) )[0];
+    
+    return missingValue;
 }
 
-let arr = [5, 7, 9, 11, 15, 17, 21];
+let arr = [5, 11, 7, 9, 15, 17];
+console.log(findMissingValue(arr)); // 13
 
-console.log(missingOddNum(arr));
-// Output:
-// [13, 19]
+// 2nd approach..
+
+const findMissingValue2 = (arr) => {
+
+    // Sort.. 
+    arr.sort((a, b) => a - b);
+
+    let missingValue = [];
+
+    console.log(arr)
+
+    for (let i = 0 ; i < arr.length - 1 ; i++) { 
+        
+        if (arr[i + 1] - arr[i] !== 2) {
+            missingValue.push(arr[i] + 2);
+        }
+    }
+
+    return missingValue;
+}
+
+arr = [5, 11, 7, 9, 15, 17];
+console.log(findMissingValue2(arr)); // [13]
+
