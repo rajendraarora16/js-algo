@@ -22,7 +22,17 @@ console.log(result) // { d: 10, e: 12 }
 
 
 // 2nd approach..
-let result2 = {}
+let result2 = {};
+const resp = Object.keys(input1).forEach(item => {
+    if (input2[item] === input1[item]) {
+        result2[item] = input1[item]
+    }
+})
+console.log(result2) // { d: 10, e: 12 }
+
+
+// 3rd approach..
+let result3 = {}
 for (let i = 0 ; i < Object.keys(input1).length ; i++) {
 
     let keysOfInput1 = Object.keys(input1)[i];
@@ -36,6 +46,5 @@ for (let i = 0 ; i < Object.keys(input1).length ; i++) {
     }
 }
 
-console.log(result2) // { d: 10, e: 12 }
-
+console.log(result3) // { d: 10, e: 12 }
 
