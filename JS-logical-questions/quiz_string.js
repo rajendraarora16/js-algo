@@ -1,6 +1,31 @@
 // Given string "aaAAbbCCddd"
 // Make an output like this way.. "a2A2C2d3"
 
+// 1st approach..
+
+const checkStringLength = (str) => {
+    let result = "";
+    let count = 1;
+
+    for (let i = 0 ; i < str.length ; i ++) {
+
+        if ( str[i] === str[ i + 1 ] ) {
+            count++;
+        } 
+        else {
+            result += str[i]+""+count;
+            count = 1;
+        }
+    }
+
+    return result;
+}
+
+console.log(checkStringLength(str)); // 'a2A2b2C3d3'
+
+
+
+// 2nd approach..
 
 const reduceResp = arr.reduce((acc, currentValue) => {
 
