@@ -102,6 +102,33 @@ console.log(resp.join("")); // 'tpircsavaJ'
  
  "sihT si tpircsavaJ edoC"
  */
+
+// 1st approach..
+
+
+const reverseStr = (str) => {
+
+    let currentWord = "";
+    let result = [];
+
+    for (let i = 0 ; i <= str.length ; i++) {
+
+        if (str[i] === " " || i == str.length) {
+            result.push(currentWord);
+            currentWord = "";
+        } else {
+            currentWord = str[i] + currentWord;
+        }
+    }
+    return result.join(" ");
+}
+
+let str = "This is Javascript code";
+console.log(reverseStr(str));  // 'sihT si tpircsavaJ edoc'
+
+
+// 2nd approach..
+
 const str = "This is Javascript Code";
 const arrStr = str.split(" ");
 
