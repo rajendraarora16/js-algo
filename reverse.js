@@ -78,6 +78,22 @@ console.log(reverseNumProcess(["A", "B", "C", "D"]));
 // [ 'D', 'C', 'B', 'A' ]
 
 
+/* Recursive way to reverse string */
+let resp = [];
+const reverseStr = (str) => {
+    if (str === "") return ;
+
+    resp.push(str[str.length - 1]);
+    
+    reverseStr(str.slice(0, str.length - 1));
+}
+
+const str = "Javascript";
+
+reverseStr(str);
+
+console.log(resp.join("")); // 'tpircsavaJ'
+
 
 /**
  Reverse string
