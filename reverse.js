@@ -147,3 +147,21 @@ console.log(result.join(" "));
    Expected output 
    'sihT si tpircsavaJ edoC'
 */
+
+
+// 3rd approach to reverse string
+
+const reverseStr = (str) => {
+
+    let result = [];
+
+    for (let i = 1 ; i <= str.length ; i++) {
+        result.push(str[str.length - i]);
+    }
+
+    return result.join("");
+}
+
+console.log(reverseStr("Hello")); // olleH
+
+
