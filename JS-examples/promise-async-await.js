@@ -42,7 +42,8 @@ const promise2 = new Promise((_resolve, reject) => setTimeout(() => reject("prom
 const promise3 = new Promise((resolve, _reject) => setTimeout(() => resolve("promise 3 is resolved"), 1000));
 
 
-// returns whoever first is resolved
+// returns whoever first is resolved doesn't care about the rejection
+// if all promise is rejected then there will be "AggregateError: All promises were rejected"
 Promise.any([promise1, promise2, promise3])
     .then((value) => console.log("value:", value))
     .catch((error) => console.log("error: ",error));
