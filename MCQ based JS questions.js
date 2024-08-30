@@ -113,5 +113,19 @@ const obj = {
   // b with arrow function is used hence it will retain the previous value 
   // with "a" But if you have used "bind" then it will the latest one.
 
+
+// -----------------------------------------
+
+
+  const obj = {
+    value: 1,
+    getValue: function() {
+      return function() {
+        return this.value;
+      }.call(this); // here "call" can also be used...
+    },
+  };
+  
+  console.log(obj.getValue()); // output will be "1"...
   
   
