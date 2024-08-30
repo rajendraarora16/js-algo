@@ -93,4 +93,25 @@ const obj = {
   console.log(getA); // output as "2"..
 // if you want to increment then use "return ++this.a;" it will print as 3
 
+
+// -----------------------------------------
+
+const obj = {
+    a: 1,
+    b: function() {
+      return () => this.a; // arrow function is used so now it has access to "a" as 1..
+    },
+  };
+  
+  const getA = obj.b.bind({a: 4}); // please not that "bind" is used so it will retain as a with 4
+  console.log(getA()()) // double ()() is used because there is a return function inside return..
+  // output will be 4
+
+
+  const getB = obj.b();
+  console.log(getB.call({a: 4})) // output as "1" 
+  // b with arrow function is used hence it will retain the previous value 
+  // with "a" But if you have used "bind" then it will the latest one.
+
+  
   
