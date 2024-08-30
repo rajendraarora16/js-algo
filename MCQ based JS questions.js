@@ -76,3 +76,21 @@ const getValueFromInstance1 = instance1.getValue.bind(instance2);
 
 console.log(getValueFromInstance1());// output will be "100"
   
+// -----------------------------------------
+
+const obj = {
+    a: 1,
+    b: {
+      a: 2,
+      getA: function() {
+        return ++this.a; // here increment is used but it will not increment
+      },
+    },
+  };
+  
+  const getA = obj.b.getA();
+   
+  console.log(getA); // output as "2"..
+// if you want to increment then use "return ++this.a;" it will print as 3
+
+  
