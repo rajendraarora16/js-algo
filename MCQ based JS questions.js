@@ -129,3 +129,16 @@ const obj = {
   console.log(obj.getValue()); // output will be "1"...
   
   
+
+  const myFunc = (() => {  // <-- IIFE
+    let count = 0;  // <-- It will execute only first time because it is wrapped inside IIFE.
+    return () => {
+        count++;
+        return count;
+    };
+})(); // <-- IIFE
+
+console.log(myFunc()); // 1
+console.log(myFunc()); // 2
+console.log(myFunc()); // 3
+
