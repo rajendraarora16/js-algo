@@ -60,4 +60,4 @@ const k = 3;
 console.log(windowSlidingTech(arr, k));
 // output = 18
 
-
+// algorithm wise it is O(n) linear.. first loop k times, second n-k times.. k + (n - k) = n it is efficient 
