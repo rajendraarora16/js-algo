@@ -24,3 +24,40 @@ console.log(maxSumArr(arr, size))
  * Learnt from this youtube link:
  * https://www.youtube.com/watch?v=JWHjqjk9ZYc
  */
+
+
+
+// using 2 loop which can solve most of the problems:
+
+
+
+const windowSlidingTech = (arr, k) => {
+    let count = 0;
+    let maxSeen = -Infinity;
+
+    // fist slide
+    for (let i = 0 ; i < k ; i++) {
+      count += arr[i];
+    }
+
+    maxSeen = count;
+
+    // move to another slide..
+    for (let i = k ; i < arr.length ; i++) {
+
+      count += arr[i];
+      count -= arr[i - k];
+
+      maxSeen = Math.max(maxSeen, count);
+    }
+
+    return maxSeen;
+}
+
+const arr = [1, 2, 3, 5, 4, 8, 6, 2];
+const k = 3;
+
+console.log(windowSlidingTech(arr, k));
+// output = 18
+
+
