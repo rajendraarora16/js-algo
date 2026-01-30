@@ -61,3 +61,29 @@ console.log(windowSlidingTech(arr, k));
 // output = 18
 
 // algorithm wise it is O(n) linear.. first loop k times, second n-k times.. k + (n - k) = n it is efficient 
+
+
+
+const slidingWindowTech = (str) => { 
+  
+  let left = 0;
+  let maxSeen = -Infinity;
+  let set = new Set();
+
+
+  for (let  right = 0  ; right < str.length ; right ++) {
+
+    while (set.has(str[right])) {
+      set.delete(str[left]);
+      left++;
+    }
+
+    maxSeen = Math.max(maxSeen, (right - left) + 1);
+    set.add(str[right]);
+  }
+  return maxSeen;
+}
+
+const str = "abcabcbb";
+console.log(str)
+console.log(slidingWindowTech(str));
