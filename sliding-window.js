@@ -87,3 +87,47 @@ const slidingWindowTech = (str) => {
 const str = "abcabcbb";
 console.log(str)
 console.log(slidingWindowTech(str));
+
+
+
+// first slide with move slide example.. 
+
+const slidingWindowTech = (str, k) => { 
+  
+  let set = new Set(['a', 'e', 'i', 'o', 'u']);
+  let count = 0;
+  let maxSeen = -Infinity;
+
+  //first slide..
+  for (let i = 0 ; i < k ; i++) {
+    
+    if (set.has(str[i])) {
+      count++;
+    }
+  }
+
+  maxSeen = count;
+
+  // move the slide..
+  for (let i = k; i < str.length ; i++) {
+
+    if (set.has(str[i])) {
+      count++;
+    }
+
+    if (set.has(str[i - k])) {
+      count--;
+    }
+
+    maxSeen = Math.max(maxSeen, count);
+  }
+
+  return maxSeen;
+}
+
+const str = "abciiidef";
+const target = 3;
+console.log(str);
+console.log(slidingWindowTech(str, target));
+
+
