@@ -60,3 +60,39 @@ let target = -2
 
 console.log(twoSum(arr, target));
 
+
+
+// reverse string using two pointer:
+
+
+const isChar = (char) => {
+  return char.length === 1 && ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z'));
+}
+
+const reverseStr = (str) => {
+  
+  let res = str.split('');
+  let left = 0;
+  let right = res.length - 1;
+
+  while (left < right) {
+
+    if (isChar(res[left]) && isChar(res[right])) {
+      [res[left], res[right]] = [res[right] , res[left]];
+      left++;
+      right--;
+    }
+
+    else if (!isChar(res[left])) {
+      left++;
+    }
+    else {
+      right--;
+    }
+  }
+
+  return res.join('');
+}
+
+const str = "RAJ-ENDR-A-WEVG";
+console.log(reverseStr(str));
