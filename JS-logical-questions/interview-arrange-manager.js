@@ -22,23 +22,26 @@ of C and so on.
 } */
 
 const mangerInfo = (arr) => {
+
   let hashMap = {};
-  
-  for (const [emp, mngr] of arr) {
-    if (!hashMap[mngr]) {
-      hashMap[mngr] = [];
+
+  for (const [ employee, manager ] of arr) {
+
+    if (!hashMap[manager]) {
+      hashMap[manager] = [];
     }
 
-    if (emp !== mngr) {
-      hashMap[mngr].push(emp);
+    if (employee !== manager) {
+      hashMap[manager].push(employee);
     }
-  }  
+  }
 
   return hashMap;
-} 
+}
+
 
 const input = [ 
-  ["A", "C"],
+  [ "A", "C" ],
   [ "B", "C" ],
   [ "C", "F" ],
   [ "D", "E" ],
@@ -47,4 +50,3 @@ const input = [
 ];
 
 console.log(mangerInfo(input));
-
