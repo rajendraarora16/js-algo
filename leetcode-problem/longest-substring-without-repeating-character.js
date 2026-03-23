@@ -41,7 +41,7 @@ console.log(lengthOfLongestSubstring(s));
 
 /**
  * Optimal solution using "Sliding window technique"
- * 
+ * This is called variable sliding window technique
  */
 
 const lengthOfLongestSubString = (str) => {
