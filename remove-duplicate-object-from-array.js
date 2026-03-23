@@ -60,3 +60,17 @@ let res3 = books3.forEach( book => {
   }
 });
 console.log(result3)
+
+
+
+const myArray = [
+    { a: '1', b: '2' },
+    { c: '2', d: '4' },
+    { c: '2', d: '6' },
+    { a: '1', b: '2' }
+];
+
+const removedDuplicate = [...new Set(myArray.map(item => JSON.stringify(item)))].map(item => JSON.parse(item))
+console.log(removedDuplicate)
+
+
