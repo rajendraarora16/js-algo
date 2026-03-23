@@ -74,3 +74,8 @@ const removedDuplicate = [...new Set(myArray.map(item => JSON.stringify(item)))]
 console.log(removedDuplicate)
 
 
+
+const arr = [1,2,3,4,5,5,5,5,5];
+console.log([...new Set(arr)])
+
+
