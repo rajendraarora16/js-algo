@@ -31,6 +31,7 @@ class BST {
         this.insert(node.left, value);
       }
     }
+    // right leaf..
     else {
       if (!node.right) {
         node.right = new Node(value);
