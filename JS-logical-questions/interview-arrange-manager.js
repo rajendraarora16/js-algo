@@ -50,3 +50,44 @@ const input = [
 ];
 
 console.log(mangerInfo(input));
+
+
+
+
+/// O(n) approach..
+
+const format = (arr) => {
+  
+  let hashMap = {}; 
+  const arrF = arr.map(item => Object.entries(item)[0]);
+
+
+  for ( const [emp, manager] of arrF) {
+
+    if (!hashMap[emp]) {
+      hashMap[emp] = [];
+    }
+
+    if (!hashMap[manager]) {
+      hashMap[manager] = [];
+    }
+
+    hashMap[manager].push(emp);
+
+  }
+
+  return hashMap;
+};
+
+const input = [
+  { "A": "C" },
+  { "B": "C" },
+  { "C": "F" },
+  { "D": "E" },
+  { "E": "F" },
+  { "F": "F" }
+];
+
+console.log(format(input));
+
+
