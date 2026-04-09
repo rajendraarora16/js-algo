@@ -77,3 +77,40 @@ bst.add(6);
 bst.add(80);
 
 console.log(bst.search(80))
+
+
+
+/* BST iterative way. */
+add (value) {
+
+  if (!this.root) {
+    this.root = new Node(value);
+  }
+  else {
+    this.insert (this.root, value);
+  }
+}
+
+insert (node, value) {
+
+  while (true) {
+    // assign the node to left leaf..
+    if (node.value > value) {
+
+      if (!node.left) {
+        node.left = new Node(value);
+        return ;
+      }
+      node = node.left;
+    }
+
+    // assign to right leaf..
+    else {
+      if (!node.right) {
+        node.right = new Node(value);
+        return ;
+      }
+      node = node.right;
+    }
+  }
+}
