@@ -130,4 +130,35 @@ const target = 3;
 console.log(str);
 console.log(slidingWindowTech(str, target));
 
+// IF interviewer asks to return that array numbers which is making the total sum:
 
+const slidingWindow = (arr, k) => {
+
+  let count = 0;
+  let maxCount = -Infinity;
+  let startWith = 0;
+
+  // first slide..
+  for (let i = 0; i < k ; i++) {
+    count += arr[i];
+  }
+
+  // second slide..
+  for (let i = k ; i < arr.length ; i++) {
+
+    count += arr[i];
+    count -= arr[i - k];
+
+      // Here it can get the numbers which is making that array as greater values
+    if (count > maxCount) {
+      maxCount = count;
+      startWith = i - k + 1;
+    }
+}
+
+  return arr.slice(startWith, startWith + k);
+};
+
+const arr = [2, 1, 5, 1, 3, 2];
+const k = 3;
+console.log(slidingWindow(arr, k));
