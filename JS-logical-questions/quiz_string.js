@@ -46,3 +46,29 @@ for (const [key, value] of Object.entries(foo)) {
 }
 
 console.log(result.join('')) // 'a2A2b2C2d3'
+
+
+/*reverse question*/
+const isNumber = (char) => {
+  if (char >= '0' && char <= '9' && char !== '') return true;
+  return false;
+}
+
+const performOperationg = (str) => {
+  let num = 1;
+  let result = '';
+
+  for (let i = 0 ; i < str.length ; i++) {
+    
+    if (isNumber(str[i])) {
+      num = str[i];
+    }
+    else {
+      result += Array.from({ length: Number(num) }, (_) => str[i]).join('');
+    }
+  }
+
+  return result;
+};
+ 
+console.log(performOperationg('2b9c332a')); // bbcccccccccaa
